@@ -9,7 +9,7 @@ import { DateTime } from '@/models/common/datetime.dto'
 import { ImageURL } from '@/models/common/image_url.dto'
 import { S3URL } from '@/models/common/s3_url.dto'
 import { z } from 'zod'
-import type { ResourceQuery } from './resource.interface'
+import type { ResourceQuery } from '../resource.interface.dto'
 
 const DefeatEnemyModel = z.object({
   enemy: z

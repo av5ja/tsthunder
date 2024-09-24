@@ -9,7 +9,8 @@ export namespace Thunder {
       nsa_id: z.string().nullable().default(null),
       npln_user_id: z.string().nullable().default(null),
       membership: z.boolean().default(false),
-      expires_in: z.number().nullable().default(null)
+      expires_in: z.number().nullable().default(null),
+      customer_id: z.string().nullable().default(null)
     })
     .transform((value) => {
       return {

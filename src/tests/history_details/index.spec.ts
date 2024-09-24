@@ -1,7 +1,7 @@
 import { describe, expect, it, test } from 'bun:test'
 import { readFileSync, readdirSync, writeFile, writeFileSync } from 'node:fs'
 import path from 'node:path'
-import { CoopHistoryDetailQuery } from '@/models/coop_history_detail.dto'
+import { CoopHistoryDetailQuery } from '@/models/coop/coop_history_detail.dto'
 
 describe('CoopHistoryDetailQuery', () => {
   test('Validity', () => {

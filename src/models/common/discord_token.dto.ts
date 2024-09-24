@@ -20,15 +20,6 @@ export namespace Discord {
     global_name: z.string()
   })
 
-  export const Member = z.object({
-    // avatar: z.string().nullable(),
-    // banner: z.string().nullable(),
-    // premium_since: z.string().nullable(),
-    roles: z.array(z.string()),
-    mute: z.boolean(),
-    deaf: z.boolean()
-  })
-
   export type User = z.infer<typeof User>
   export type Token = z.infer<typeof Token>
 }
