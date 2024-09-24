@@ -1,8 +1,8 @@
 import { S3URL } from '@/models/common/s3_url.dto'
 import { z } from 'zod'
+import type { ResourceQuery } from '../resource.interface.dto'
 import { CoopHistoryDetail, CoopHistoryDetailQuery } from './coop_history_detail.dto'
 import { CoopSchedule } from './coop_schedule.dto'
-import type { ResourceQuery } from './resource.interface'
 
 export namespace CoopResult {
   /**

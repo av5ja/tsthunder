@@ -3,7 +3,7 @@ import { ImageURL } from '@/models/common/image_url.dto'
 import { NodeList } from '@/models/common/node_list.dto'
 import { S3URL } from '@/models/common/s3_url.dto'
 import { z } from 'zod'
-import type { ResourceQuery } from './resource.interface'
+import type { ResourceQuery } from './resource.interface.dto'
 
 const WeaponRecordModel = z
   .object({
