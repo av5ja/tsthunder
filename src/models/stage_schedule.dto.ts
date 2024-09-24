@@ -4,7 +4,7 @@ import { NodeList } from '@/models/common/node_list.dto'
 import { S3URL } from '@/models/common/s3_url.dto'
 import { WeaponInfoMainHash } from '@/models/common/weapon_hash.dto'
 import { z } from 'zod'
-import type { ResourceQuery } from './resource.interface'
+import type { ResourceQuery } from './resource.interface.dto'
 
 export namespace StageSchedule {
   const Setting = z.object({

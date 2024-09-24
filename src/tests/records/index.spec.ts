@@ -1,7 +1,7 @@
 import { describe, expect, it, test } from 'bun:test'
 import { readFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
-import { CoopRecordQuery } from '@/models/coop_record.dto'
+import { CoopRecordQuery } from '@/models/coop/coop_record.dto'
 
 describe('CoopRecordQuery', () => {
   test('Validity', () => {
