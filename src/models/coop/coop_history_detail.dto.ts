@@ -1,4 +1,3 @@
-import { createHash } from 'node:crypto'
 import { CoopBossInfo, CoopEnemyInfo } from '@/enums/coop/coop_enemy'
 import { CoopEvent } from '@/enums/coop/coop_event'
 import { CoopGrade } from '@/enums/coop/coop_grade'
@@ -20,6 +19,7 @@ import { WeaponInfoMainHash } from '@/models/common/weapon_hash.dto'
 import { z } from 'zod'
 import type { ResourceQuery } from '../resource.interface.dto'
 import { CoopSchedule } from './coop_schedule.dto'
+import { AlgorithmType, createHash } from '@/utils/crypto'
 
 const BossResultModel = z
   .object({
@@ -197,7 +197,7 @@ export namespace CoopHistoryDetail {
     })
     .transform((data) => {
       return {
-        hash: createHash('md5').update(`${data.id.playTime}:${data.id.uuid}:${data.id.nplnUserId}`).digest('hex'),
+        hash: createHash(AlgorithmType.MD5, `${data.id.playTime}:${data.id.uuid}:${data.id.nplnUserId}`),
         ...data
       }
     })
@@ -244,7 +244,7 @@ export namespace CoopHistoryDetail {
     })
     .transform((data) => {
       return {
-        hash: createHash('md5').update(`${data.playTime}:${data.uuid}`).digest('hex'),
+        hash: createHash(AlgorithmType.MD5, `${data.playTime}:${data.uuid}`),
         ...data
       }
     })
@@ -303,9 +303,10 @@ export class CoopHistoryDetailQuery implements ResourceQuery {
   private get waveResults(): CoopHistoryDetail.WaveResult[] {
     return this.coopHistoryDetail.waveResults.map((result) =>
       CoopHistoryDetail.WaveResult.parse({
-        hash: createHash('md5')
-          .update(`${this.coopHistoryDetail.id.playTime}:${this.coopHistoryDetail.id.uuid}:${result.waveNumber}`)
-          .digest('hex'),
+        hash: createHash(
+          AlgorithmType.MD5,
+          `${this.coopHistoryDetail.id.playTime}:${this.coopHistoryDetail.id.uuid}:${result.waveNumber}`
+        ),
         waterLevel: result.waterLevel,
         eventType: result.eventWave,
         quotaNum: result.deliverNorm,
