@@ -1,6 +1,6 @@
 {
   "name": "@av5ja/tsthunder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ThunderAPIでの通信の型を定義したライブラリです",
   "author": "tkgstrator",
   "license": "MIT",
@@ -30,20 +30,21 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "dayjs": "^1.11.13",
     "hono": "^4.6.3",
-    "lodash": "^4.17.21",
-    "tsshogi": "^1.1.2"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@commitlint/cz-commitlint": "^19.2.0",
-    "@types/bun": "latest",
+    "@biomejs/biome": "^1.9.2",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/cz-commitlint": "^19.5.0",
+    "@types/bun": "^1.1.10",
+    "@types/crypto-js": "^4.2.2",
     "@types/lodash": "^4.17.9",
-    "@types/node": "^22.5.4",
-    "husky": "^9.1.3",
+    "@types/node": "^22.7.0",
+    "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "rimraf": "^6.0.1",
     "tsc-alias": "^1.8.10",
