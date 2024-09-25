@@ -1,4 +1,3 @@
-import { createHash } from 'node:crypto'
 import { CoopBossInfo } from '@/enums/coop/coop_enemy'
 import { CoopMode } from '@/enums/coop/coop_mode'
 import { CoopRule } from '@/enums/coop/coop_rule'
@@ -6,6 +5,7 @@ import { CoopStage } from '@/enums/coop/coop_stage'
 import { WeaponInfoMain } from '@/enums/weapon/main'
 import { DateTime } from '@/models/common/datetime.dto'
 import { camelcaseKeys } from '@/utils/camelcase_keys'
+import { AlgorithmType, createHash } from '@/utils/crypto'
 import { z } from 'zod'
 
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
@@ -86,10 +86,11 @@ export namespace CoopSchedule {
         return {
           id:
             object.startTime === null || object.endTime === null
-              ? createHash('md5')
-                  .update(`${object.mode}-${object.rule}-${object.stageId}-${object.weaponList.join(',')}`)
-                  .digest('hex')
-              : createHash('md5').update(`${object.startTime}:${object.endTime}`).digest('hex'),
+              ? createHash(
+                  AlgorithmType.MD5,
+                  `${object.mode}-${object.rule}-${object.stageId}-${object.weaponList.join(',')}`
+                )
+              : createHash(AlgorithmType.MD5, `${object.startTime}:${object.endTime}`),
           ...object
         }
       })
